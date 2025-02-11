@@ -1,0 +1,173 @@
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Będziesz moją Walentynką? ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: borde<!DOCTYPE html>
+r-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* ANIMOWANE TŁO */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.gifer.com/origin/30/30c2b6a6888a1b6ef77dc51ffb0d649d_w200.gif') repeat;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-family: 'Pacifico', cursive;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        /* KARTA ZE ZWIERZAKAMI */
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 500px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .gif-container img {
+            width: 100px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* PRZYCISKI */
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
+            font-size: 22px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .yes {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .yes:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .no {
+            background: rgba(255, 50, 50, 0.7);
+            color: white;
+            position: absolute;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* ANIMACJE */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="background-music" loop>
+        <source src="https://www.myinstants.com/media/sounds/careless-whisper.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <h1>Będziesz moją Walentynką? ❤️</h1>
+
+        <div class="card">
+            <div class="gif-container">
+                <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Kotek">
+                <img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif" alt="Piesek">
+                <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Króliczek">
+            </div>
+
+            <div class="buttons">
+                <button class="yes" onclick="showLove()">Tak! 😍</button>
+                <button class="no" onmouseover="moveNo()">Nie 😢</button>
+            </div>
+        </div>
+
+        <div id="love-message" class="hidden">
+            <h2>Hurrra! Kocham Cię! 💖💖💖</h2>
+            <p>Dziękuje bardzo! 💕</p>
+        </div>
+    </div>
+
+    <script>
+        function showLove() {
+            document.getElementById('love-message').classList.remove('hidden');
+        }
+
+        function moveNo() {
+            let button = document.querySelector(".no");
+            let x = Math.random() * (window.innerWidth - 150);
+            let y = Math.random() * (window.innerHeight - 50);
+            button.style.left = x + "px";
+            button.style.top = y + "px";
+        }
+    </script>
+
+</body>
+</html>
